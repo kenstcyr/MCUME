@@ -1377,6 +1377,12 @@ int keypressed = emu_ReadKeys();
     tft.flipscreen(false);
   }
 #endif
+#ifdef GAMEBADGE
+tft.flipscreen(true);
+gpio_init(26);
+gpio_set_dir(26, GPIO_OUT);
+gpio_put(26,1);
+#endif
 #endif
 
   if (keypressed & MASK_JOY2_DOWN) {

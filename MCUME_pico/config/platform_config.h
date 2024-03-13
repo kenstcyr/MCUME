@@ -6,12 +6,13 @@
 // PICOMPUTER has support for TFT+keymatrix+Sound 
 
 
-#define PICOZX         1
+//#define PICOZX         1
 //#define PICOMPUTER     1
 //#define PICOMPUTERMAX  1
 //#define PICORETROVGA   1
 //#define MCUME_REV1      1
-//#define MCUME_REV2      1
+#define MCUME_REV2      1
+#define GAMEBADGE      1
 
 #ifdef PICOZX
 //#define USE_VGA        1
@@ -59,12 +60,19 @@
 
 #ifdef MCUME_REV2
 //#define HAS_PSRAM      1
-#define USE_VGA        1
+//#define USE_VGA        1
 //#define ILI9341        1
 //#define ST7789         1
 //#define ST7789_POL     1
 #define INVX           1
 #define HAS_SND        1
+#endif
+
+#ifdef GAMEBADGE
+#define ST7789         1
+#define INVX           1
+#define HAS_SND        1
+#define LOHRES         1
 #endif
 
 //#define HAS_SND        1

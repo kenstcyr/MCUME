@@ -72,7 +72,7 @@
 
 #else /* PICOZX */
 // Speaker
-#define AUDIO_PIN       0
+#define AUDIO_PIN       6
 // VGA
 /* RRRGGGBB
    VSYNC and HSYNC */
@@ -98,11 +98,11 @@
 #else
 // TFT
 #define TFT_SPIREG      spi0
-#define TFT_SPIDREQ     DREQ_SPI0_TX
+#define TFT_SPIDREQ     spi_get_dreq(spi0, true)
 #define TFT_SCLK        18
 #define TFT_MOSI        19
 #define TFT_MISO        255 // Not required, used for DC... 
-#define TFT_DC          16
+#define TFT_DC          20
 
 #ifdef PICOMPUTER
 #ifdef PICOMPUTERMAX
@@ -120,10 +120,19 @@
 // MCUME_REV2 (ILI)
 #define TFT_RST         21
 #define TFT_CS          17
-#define TFT_BACKLIGHT   255 // hardwired to 3.3v
+#define TFT_BACKLIGHT   22 //255 // hardwired to 3.3v
 #endif
 #endif
 
+#ifdef GAMEBADGE
+// SD (see SPI0 in code!!!)
+#define SD_SPIREG       spi1
+#define SD_SCLK         10 //14
+#define SD_MOSI         15
+#define SD_MISO         12 
+#define SD_CS           27
+#define SD_DETECT       255 //22
+#else
 // SD (see SPI0 in code!!!)
 #define SD_SPIREG       spi1
 #define SD_SCLK         10 //14
@@ -131,6 +140,7 @@
 #define SD_MISO         12 
 #define SD_CS           13
 #define SD_DETECT       255 //22
+#endif
 
 // PSRAM (exclusive with TFT)
 #define PSRAM_SPIREG    spi0
@@ -218,13 +228,13 @@
 //#define PIN_JOY2_A1X    26
 //#define PIN_JOY2_A2Y    27
 
-#define PIN_JOY2_1      27  // UP
-#define PIN_JOY2_2      26  // DOWN
-#define PIN_JOY2_3      28  // RIGHT
-#define PIN_JOY2_4      22  // LEFT
-#define PIN_JOY2_BTN    1
-#define PIN_KEY_USER1   20
-#define PIN_KEY_USER2   21 
+#define PIN_JOY2_1      7//27  // UP
+#define PIN_JOY2_2      11//26  // DOWN
+#define PIN_JOY2_3      13//28  // RIGHT
+#define PIN_JOY2_4      9//22  // LEFT
+#define PIN_JOY2_BTN    4
+#define PIN_KEY_USER1   21//20
+#define PIN_KEY_USER2   5//21 
 
 #endif
 #endif
