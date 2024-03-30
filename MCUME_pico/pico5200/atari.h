@@ -22,7 +22,7 @@
 #define PAGED_MEM 1
 #define SOUND 1
 #define NO_SIMPLE_PAL_BLENDING 1
-#define ANALOGJOY 1
+#define ANALOGJOY 0//1
 
 #define max_ypos    tv_mode
 
