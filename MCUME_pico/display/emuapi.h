@@ -57,6 +57,7 @@ extern int emu_FrameSkip(void);
 extern int emu_IsVga(void);
 //extern void emu_DrawLine(unsigned char * VBuf, int width, int height, int line);
 //extern void * emu_LineBuffer(int line);
+extern void emu_DrawScreen(unsigned char * VBuf, int width, int height, int stride);
 
 extern void emu_InitJoysticks(void);
 extern int emu_SwapJoysticks(int statusOnly);

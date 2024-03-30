@@ -23,6 +23,8 @@ static bool emu_eraseGfxConfig(void);
 #include "pico_dsp.h"
 extern PICO_DSP tft;
 
+#define DEBUG_OUTPUT        0
+
 #define MAX_FILENAME_PATH   64
 #define NB_FILE_HANDLER     4
 #define AUTORUN_FILENAME    "autorun.txt"
@@ -85,22 +87,30 @@ static bool autorun=false;
 ********************************/ 
 void emu_printf(const char * text)
 {
+  #if DEBUG_OUTPUT
   printf("%s\n",text);
+  #endif
 }
 
 void emu_printf(int val)
 {
+  #if DEBUG_OUTPUT
   printf("%d\n",val);
+  #endif
 }
 
 void emu_printi(int val)
 {
+  #if DEBUG_OUTPUT
   printf("%d\n",val);
+  #endif
 }
 
 void emu_printh(int val)
 {
+  #if DEBUG_OUTPUT
   printf("0x%.8\n",val);
+  #endif
 }
 
 static int malbufpt = 0;
